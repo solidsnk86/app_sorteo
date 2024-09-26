@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>App de Sorteo</title>
+    <script src="sorteo.js" type="module"></script>
+  </head>
+  <body>
+    <main>
+      <h1>App de Sorteo</h1>
+      <section class="grid-container">
+        <div class="form-section">
+          <form class="members-form">
+            <h3>Integrante</h3>
+            <input type="text" id="member" placeholder="Nombre Integrante" />
+            <button id="submit-member" type="submit">Agregar</button>
+          </form>
+
+          <form class="task-form">
+            <h3>Tarea</h3>
+            <input type="text" id="task" placeholder="Tarea a realizar" />
+            <button id="submit-task" type="submit">Agregar</button>
+          </form>
+        </div>
+
+        <div class="result-section">
+          <div class="result-container">
+            <h4>Integrantes para el sorteo:</h4>
+            <ul id="members-list"></ul>
+          </div>
+          <div class="result-container">
+            <h4>Tareas para el sorteo:</h4>
+            <ul id="tasks-list"></ul>
+          </div>
+          <aside class="aside-btns">
+            <button id="shuffle">Sortear</button>
+            <button id="reset">Resetear</button>
+          </aside>
+        </div>
+
+        <div class="shuffle-result-section">
+          <h4>Resultado del Sorteo:</h4>
+          <div class="shuffle-result"></div>
+        </div>
+      </section>
+      <footer>&copy;solidSnk86 • 2024</footer>
+    </main>
+  </body>
+</html>
