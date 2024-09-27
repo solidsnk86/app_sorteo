@@ -123,14 +123,14 @@ button:active {
 
   & #shuffle {
     display: flex;
-jsutify-content: center;
+justify-content: center;
     gap: 4px;
     align-items: center;
   }
 
   & #reset {
     display: flex;
-jsutify-content: center;
+justify-content: center;
     gap: 4px;
     align-items: center;
   }
