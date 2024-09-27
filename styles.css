@@ -81,8 +81,6 @@ button {
   background-color: #546feb;
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.2s;
-  outline: 2px solid #6d87ff;
-  outline-offset: 2px;
 }
 
 button:hover {
