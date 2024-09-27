@@ -50,6 +50,15 @@ form {
   gap: 10px;
 }
 
+#submit-member,
+#submit-task {
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  gap: 8px;
+}
+
 input[type="text"] {
   padding: 10px;
   border-radius: 4px;
@@ -65,13 +74,15 @@ input[type="text"]:focus {
 }
 
 button {
-  padding: 12px;
+  padding: 8px 6px;
   border: none;
   border-radius: 4px;
   color: #fff;
   background-color: #546feb;
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.2s;
+  outline: 2px solid #6d87ff;
+  outline-offset: 2px;
 }
 
 button:hover {
@@ -89,6 +100,18 @@ button:active {
   justify-content: space-between;
   gap: 10px;
   margin-top: 20px;
+
+  & #shuffle {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  & #reset {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
 }
 
 h3,
@@ -137,9 +160,33 @@ ul li:hover {
   border-radius: 4px;
 }
 
+.container-shr-btn {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  & svg {
+    width: 22px;
+    height: 22px;
+    transform: rotate(180deg);
+  }
+}
+
 footer {
   text-align: center;
   margin-top: 16px;
+  align-items: center;
+
+  & svg {
+    fill: tomato;
+    transform: translateX(-2px) translateY(3px);
+  }
 }
 
 @media (max-width: 600px) {

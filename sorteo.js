@@ -1,4 +1,4 @@
-// Seleccionando elementos usando clases
+// Seleccionando elementos usando clases e ids
 const inputMember = document.querySelector(".members-form #member");
 const formMembers = document.querySelector(".members-form");
 const formTasks = document.querySelector(".task-form");
@@ -7,9 +7,14 @@ const shuffleResult = document.querySelector(".shuffle-result");
 const membersList = document.querySelector("#members-list");
 const tasksList = document.querySelector("#tasks-list");
 const resetBtn = document.querySelector("#reset");
+const shareBtn = document.querySelector(".shrare-btn");
 
 const members = [];
 const tasks = [];
+
+// Títulos del botón
+shuffleBtn.setAttribute("title", "Sortear");
+resetBtn.setAttribute("title", "Resetear");
 
 // Función para guardar en el localstorage
 function saveToLocalStorage(key, value) {
@@ -69,7 +74,8 @@ resetBtn.addEventListener("click", () => {
 
 // Función para sorteo de los miembros y las tareas
 const shuffle = (members, tasks) => {
-  const shuffledMembers = [...members].sort(() => Math.random() - 0.5); // Uso del operador de propagación, con la función sort y math random
+  // Uso del operador de propagación, con la función sort y math random para mezclar
+  const shuffledMembers = [...members].sort(() => Math.random() - 0.5);
   const shuffledTasks = [...tasks].sort(() => Math.random() - 0.5);
 
   // Devuelve el miembro y la tarea mapeando cada uno de ellos con un índice
