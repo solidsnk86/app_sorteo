@@ -39,6 +39,11 @@ body {
 }
 
 main {
+  padding: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+section {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -48,7 +53,6 @@ main {
   padding: 20px;
   background-color: var(--color-main-card);
   border-radius: 8px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
@@ -81,6 +85,7 @@ form {
 #submit-task {
   display: inline-flex;
   justify-content: center;
+  margin-bottom: 10px;
   text-align: center;
   align-items: center;
   gap: 4px;
@@ -240,9 +245,5 @@ footer {
 
   button {
     padding: 10px;
-  }
-
-  .aside-btns {
-    flex-direction: column;
   }
 }
