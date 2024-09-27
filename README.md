@@ -2,7 +2,7 @@
 
 - Esta es una pequeña aplicación que diseñe para hacer sorteos, en mi caso la he creado para poder sortear trabajos prácticos en la universidad en nustro grupo de la facultad para repartirnos la tarea en secciones y quién es responsable de cada sección.
 
-## Está creada de manera sencilla utilizando los siguientes lenguajes:
+### Está creada de manera sencilla utilizando los siguientes lenguajes:
 
 | Lenguaje                                                                                             | Descripción  |
 | ---------------------------------------------------------------------------------------------------- | ------------ |
