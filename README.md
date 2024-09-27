@@ -10,6 +10,8 @@
 | ![CSS](https://img.shields.io/badge/CSS-%231572B6.svg?logo=css3&logoColor=white)                     | Diseño       |
 | ![JavaScript](https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?logo=javascript&logoColor=black) | Programación |
 
+- Pueden ingresar en el siguiente link para probarla: <a href="https://solidsnk86.github.io/app_sorteo/">App Sorteo</a>
+
 ---
 
 <div align="center">
