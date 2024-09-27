@@ -19,11 +19,6 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
-}
-
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -47,10 +42,10 @@ section {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: 20px auto;
   width: 100%;
   max-width: 500px;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 10px;
   background-color: var(--color-main-card);
   border-radius: 8px;
 }
