@@ -118,7 +118,10 @@ shareBtn.onclick = async () => {
   if (navigator.share) {
     await navigator.share({
       title: document.title,
-      text: shuffledResult,
+      text:
+        shuffledResult === ""
+          ? "Aplicación para realizar sorteos entre integrantes de equipo o grupo."
+          : shuffledResult,
       url: window.location.href,
     });
   }
