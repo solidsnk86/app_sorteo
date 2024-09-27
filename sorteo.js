@@ -8,6 +8,7 @@ const membersList = document.querySelector("#members-list");
 const tasksList = document.querySelector("#tasks-list");
 const resetBtn = document.querySelector("#reset");
 const shareBtn = document.querySelector(".share-btn");
+const addButton = document.querySelector("#submit-member, #submit-task");
 
 const members = [];
 const tasks = [];
@@ -16,6 +17,8 @@ let shuffledResult = "";
 // Títulos del botón
 shuffleBtn.setAttribute("title", "Sortear");
 resetBtn.setAttribute("title", "Resetear");
+shareBtn.setAttribute("title", "Compartir");
+addButton.setAttribute("title", "Agregar Item");
 
 // Función para guardar en el localstorage
 function saveToLocalStorage(key, value) {
@@ -99,9 +102,13 @@ shuffleBtn.addEventListener("click", () => {
   results.forEach(({ member, task }, index) => {
     shuffleResult.innerHTML += `
       <div>
-        <p>${index + 1}. ${member} realizará la tarea: ${task}</p>
+        <p style="${
+          index % 2 == 0
+            ? "background-color: #546feb"
+            : "background-color: #6d87ff"
+        }">${index + 1}. ${member} realizará la tarea: ${task}</p>
       </div>`;
-    shuffledResult += `${index + 1}. ${member} le correspone: ${task}\n`;
+    shuffledResult += `${index + 1}. ${member} le corresponde: ${task}\n`;
   });
 });
 // Función para compartir los resultados
