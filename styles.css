@@ -181,13 +181,13 @@ ul li:hover {
 }
 
 .shuffle-result {
-  padding: 15px;
-  border: 1px solid var(--color-border-input);
   background-color: #292929;
   border-radius: 4px;
+  overflow: hidden;
 }
 
-.container-shuffled-result {
+article {
+  padding: 15px;
   border: 1px solid var(--color-border-card);
   border-radius: 4px;
   overflow: hidden;
