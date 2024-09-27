@@ -7,10 +7,11 @@ const shuffleResult = document.querySelector(".shuffle-result");
 const membersList = document.querySelector("#members-list");
 const tasksList = document.querySelector("#tasks-list");
 const resetBtn = document.querySelector("#reset");
-const shareBtn = document.querySelector(".shrare-btn");
+const shareBtn = document.querySelector(".share-btn");
 
 const members = [];
 const tasks = [];
+let shuffledResult = "";
 
 // Títulos del botón
 shuffleBtn.setAttribute("title", "Sortear");
@@ -92,7 +93,7 @@ shuffleBtn.addEventListener("click", () => {
     return;
   }
 
-  // Se ingresa al DOM los elementos ya sorteados
+  // Se ingresa al DOM los elementos ya sorteados con su índice
   const results = shuffle(members, tasks);
   shuffleResult.innerHTML = "";
   results.forEach(({ member, task }, index) => {
@@ -100,5 +101,16 @@ shuffleBtn.addEventListener("click", () => {
       <div>
         <p>${index + 1}. ${member} realizará la tarea: ${task}</p>
       </div>`;
+    shuffledResult += `${index + 1}. ${member} le correspone: ${task}\n`;
   });
 });
+// Función para compartir los resultados
+shareBtn.onclick = async () => {
+  if (navigator.share) {
+    await navigator.share({
+      title: document.title,
+      text: shuffledResult,
+      url: window.location.href,
+    });
+  }
+};
