@@ -19,5 +19,5 @@
 ---
 
 <div align="center">
-    solidSnk86
+    solidsnk86
 </div>
