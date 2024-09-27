@@ -10,6 +10,7 @@ const resetBtn = document.querySelector("#reset");
 const shareBtn = document.querySelector(".share-btn");
 const addButton = document.querySelector("#submit-member, #submit-task");
 
+// Variables vacías
 const members = [];
 const tasks = [];
 let shuffledResult = "";
@@ -70,6 +71,7 @@ resetBtn.addEventListener("click", () => {
     membersList.innerHTML = "";
     tasksList.innerHTML = "";
     shuffleResult.innerHTML = "";
+    shuffledResult = "";
     localStorage.clear();
   } else {
     alert("Nada para resetear.");
@@ -101,12 +103,12 @@ shuffleBtn.addEventListener("click", () => {
   shuffleResult.innerHTML = "";
   results.forEach(({ member, task }, index) => {
     shuffleResult.innerHTML += `
-      <div>
-        <p style="${
-          index % 2 == 0
-            ? "background-color: #546feb"
-            : "background-color: #6d87ff"
-        }">${index + 1}. ${member} realizará la tarea: ${task}</p>
+      <div class="shuffled-result" style="${
+        index % 2 == 0
+          ? "background-color: #546feb"
+          : "background-color: #6d87ff"
+      }">
+        <p>${index + 1}. ${member} realizará la tarea: ${task}</p>
       </div>`;
     shuffledResult += `${index + 1}. ${member} le corresponde: ${task}\n`;
   });
