@@ -20,9 +20,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
+  :root {
   }
 }
 
@@ -189,9 +187,14 @@ ul li:hover {
   border-radius: 4px;
 }
 
+.container-shuffled-result {
+  border: 1px solid var(--color-border-card);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
 .shuffled-result {
-  padding: 2px;
-  border: 1px solid var(--color-border);
+  padding: 4px;
 }
 
 .container-shr-btn {
@@ -206,9 +209,9 @@ ul li:hover {
   gap: 4px;
 
   & svg {
-    width: 22px;
-    height: 22px;
-    transform: rotate(180deg) translateY(-1px);
+    width: 18px;
+    height: 18px;
+    transform: translateY(-2px);
   }
 }
 
@@ -219,6 +222,7 @@ footer {
 
   & svg {
     fill: tomato;
+    margin-inline: 2px;
     transform: translateX(-2px) translateY(3px);
   }
 }

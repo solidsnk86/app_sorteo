@@ -104,9 +104,9 @@ shuffleBtn.addEventListener("click", () => {
   results.forEach(({ member, task }, index) => {
     shuffleResult.innerHTML += `
       <div class="shuffled-result" style="${
-        index % 2 == 0
-          ? "background-color: #546feb"
-          : "background-color: #6d87ff"
+        index % 2 === 0
+          ? "background-color: #222222"
+          : "background-color: #333333"
       }">
         <p>${index + 1}. ${member} realizará la tarea: ${task}</p>
       </div>`;
