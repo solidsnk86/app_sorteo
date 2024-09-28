@@ -14,6 +14,11 @@ const copyBtn = document.querySelector(".copy-btn");
 const copiedBtn = document.querySelector(".copied");
 
 // Función para formatear la fecha y la hora
+/**
+ *
+ * @param { Date | number | string } d
+ * @returns
+ */
 function formatDate(d) {
   const date = new Date(d).toLocaleDateString("ES-es", {
     year: "numeric",
@@ -27,7 +32,7 @@ function formatDate(d) {
 
 const formatedDateString = formatDate(Date.now()).replace(/,/, " a las");
 
-// Variables vacías
+// Arrays vacíos y cadena de texto inicializada que más adelante se llevarán el resultado
 const members = [];
 const tasks = [];
 let shuffledResult = `Sorteo del día ${formatedDateString}\n`;
@@ -40,6 +45,11 @@ shareBtn.setAttribute("title", "Compartir");
 copyBtn.setAttribute("title", "Copiar");
 
 // Función para guardar en el localstorage
+/**
+ *
+ * @param { string } key
+ * @param { Array<[]> | string } value
+ */
 function saveToLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
@@ -72,6 +82,11 @@ formTasks.addEventListener("submit", (event) => {
 });
 
 // Función reutilizable para actualizar la lista de ambos ítems
+/**
+ *
+ * @param { Array<[]> } listElement
+ * @param { Array<[]> } array
+ */
 function updateList(listElement, array) {
   listElement.innerHTML = "";
   array.forEach((item, index) => {
@@ -150,7 +165,11 @@ shareBtn.onclick = async () => {
     });
   }
 };
-// Función asíncrona para copiar al portapapeles
+// Función asíncrona para copiar contenido al portapapeles
+/**
+ *
+ * @param { string } content
+ */
 const copyToClipboard = async (content) => {
   try {
     await navigator.clipboard.writeText(content);
