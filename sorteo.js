@@ -9,11 +9,26 @@ const tasksList = document.querySelector("#tasks-list");
 const resetBtn = document.querySelector("#reset");
 const shareBtn = document.querySelector(".share-btn");
 const addButton = document.querySelector("#submit-member, #submit-task");
+const isDesktop = navigator.userAgent.includes("Windows NT 10.0");
+
+// Función para formatear la fecha y la hora
+function formatDate(d) {
+  const date = new Date(d).toLocaleDateString("ES-es", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  return date;
+}
+
+const formatedDateString = formatDate(Date.now()).replace(/,/, " a las");
 
 // Variables vacías
 const members = [];
 const tasks = [];
-let shuffledResult = "";
+let shuffledResult = `Sorteo del día ${formatedDateString}\n`;
 
 // Títulos del botón
 shuffleBtn.setAttribute("title", "Sortear");
@@ -53,7 +68,7 @@ formTasks.addEventListener("submit", (event) => {
   formTasks.reset();
 });
 
-// Función reutilizable para actualizar la lista
+// Función reutilizable para actualizar la lista de ambos ítems
 function updateList(listElement, array) {
   listElement.innerHTML = "";
   array.forEach((item, index) => {
@@ -120,7 +135,7 @@ shareBtn.onclick = async () => {
       title: document.title,
       text:
         shuffledResult === ""
-          ? "Aplicación para realizar sorteos entre integrantes de equipo o grupo."
+          ? "Puedes usar ésta aplicación para realizar sorteos entre integrantes de equipo o grupo."
           : shuffledResult,
       url: window.location.href,
     });
