@@ -140,6 +140,29 @@ button:active {
     gap: 4px;
     align-items: center;
   }
+
+  .share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    & svg {
+      width: 18px;
+      height: 18px;
+      transform: translateY(-2px);
+    }
+  }
+
+  .copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    & svg {
+      transform: translateY(1px);
+    }
+  }
 }
 
 h3,
@@ -196,27 +219,6 @@ article {
 
 .shuffled-result {
   padding: 4px;
-}
-
-.share-btn {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-
-  & svg {
-    width: 18px;
-    height: 18px;
-    transform: translateY(-2px);
-  }
-}
-
-.copy-btn {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  & svg {
-    transform: translateY(1px);
-  }
 }
 
 footer {
