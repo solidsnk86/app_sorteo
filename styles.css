@@ -120,7 +120,8 @@ button:active {
   transform: scale(0.98);
 }
 
-.aside-btns {
+.aside-btns,
+.container-shr-btn {
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -197,13 +198,6 @@ article {
   padding: 4px;
 }
 
-.container-shr-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px auto;
-}
-
 .share-btn {
   display: flex;
   align-items: center;
@@ -250,5 +244,11 @@ footer {
 
   button {
     padding: 10px;
+  }
+
+  .aside-btns,
+  .container-shr-btn {
+    display: flex;
+    flex-direction: column;
   }
 }
