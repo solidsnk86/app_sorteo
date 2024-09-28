@@ -10,6 +10,7 @@ const resetBtn = document.querySelector("#reset");
 const shareBtn = document.querySelector(".share-btn");
 const addButton = document.querySelector("#submit-member, #submit-task");
 const isDesktop = navigator.userAgent.includes("Windows NT 10.0");
+const copyBtn = document.querySelector(".copy-btn");
 
 // Función para formatear la fecha y la hora
 function formatDate(d) {
@@ -145,5 +146,22 @@ shareBtn.onclick = async () => {
           : shuffledResult,
       url: window.location.href,
     });
+  }
+};
+// Función asíncrona para copiar al portapapeles
+const copyToClipboard = async (content) => {
+  try {
+    await navigator.clipboard.writeText(content);
+    alert("Contenido copiado al portapapeles.");
+  } catch (e) {
+    alert("Error al copiar en el portapapeles.");
+  }
+};
+
+copyBtn.onclick = async () => {
+  if (shuffledResult !== "") {
+    await copyToClipboard(shuffledResult);
+  } else {
+    alert("No hay contenido para copiar al portapapeles!");
   }
 };

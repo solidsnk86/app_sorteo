@@ -199,7 +199,8 @@ article {
 
 .container-shr-btn {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   margin: 10px auto;
 }
 
@@ -212,6 +213,15 @@ article {
     width: 18px;
     height: 18px;
     transform: translateY(-2px);
+  }
+}
+
+.copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  & svg {
+    transform: translateY(1px);
   }
 }
 
