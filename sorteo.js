@@ -11,6 +11,7 @@ const shareBtn = document.querySelector(".share-btn");
 const addButton = document.querySelector("#submit-member, #submit-task");
 const isDesktop = navigator.userAgent.includes("Windows NT 10.0");
 const copyBtn = document.querySelector(".copy-btn");
+const copiedBtn = document.querySelector(".copied");
 
 // Función para formatear la fecha y la hora
 function formatDate(d) {
@@ -32,10 +33,11 @@ const tasks = [];
 let shuffledResult = `Sorteo del día ${formatedDateString}\n`;
 
 // Títulos del botón
+addButton.setAttribute("title", "Agregar Item");
 shuffleBtn.setAttribute("title", "Sortear");
 resetBtn.setAttribute("title", "Resetear");
 shareBtn.setAttribute("title", "Compartir");
-addButton.setAttribute("title", "Agregar Item");
+copyBtn.setAttribute("title", "Copiar");
 
 // Función para guardar en el localstorage
 function saveToLocalStorage(key, value) {
@@ -152,7 +154,15 @@ shareBtn.onclick = async () => {
 const copyToClipboard = async (content) => {
   try {
     await navigator.clipboard.writeText(content);
-    alert("Contenido copiado al portapapeles.");
+    copyBtn.style.display = "none";
+    copiedBtn.style.display = "flex";
+
+    const setButton = setInterval(() => {
+      copiedBtn.style.display = "none";
+      copyBtn.style.display = "flex";
+
+      return () => clearInterval(setButton);
+    }, 2300);
   } catch (e) {
     alert("Error al copiar en el portapapeles.");
   }

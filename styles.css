@@ -146,12 +146,6 @@ button:active {
     align-items: center;
     justify-content: center;
     gap: 4px;
-
-    & svg {
-      width: 18px;
-      height: 18px;
-      transform: translateY(-2px);
-    }
   }
 
   .copy-btn {
@@ -159,9 +153,10 @@ button:active {
     align-items: center;
     justify-content: center;
     gap: 4px;
-    & svg {
-      transform: translateY(1px);
-    }
+  }
+
+  .copied {
+    display: none;
   }
 }
 
