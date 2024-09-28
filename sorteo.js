@@ -100,7 +100,13 @@ const shuffle = (members, tasks) => {
   const shuffledTasks = [...tasks].sort(() => Math.random() - 0.5);
 
   // Devuelve el miembro y la tarea mapeando cada uno de ellos con un índice
-  // que se divide por la longitud de las tares mezcladas
+  // que se divide el índice de la tarea por la longitud de las tares mezcladas
+  /**
+   * El operador % (módulo) asegura que el índice de la tarea vuelva al
+   * principio del arreglo shuffledTasks cuando
+   * se alcanzan todas las tareas, permitiendo que las tareas se asignen
+   * cíclicamente a los miembros si hay más miembros que tareas.
+   */
   return shuffledMembers.map((member, index) => {
     return { member, task: shuffledTasks[index % shuffledTasks.length] };
   });
