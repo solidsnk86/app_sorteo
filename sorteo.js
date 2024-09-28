@@ -159,7 +159,7 @@ const copyToClipboard = async (content) => {
 };
 
 copyBtn.onclick = async () => {
-  if (shuffledResult !== "") {
+  if (shuffledResult !== `Sorteo del día ${formatedDateString}\n`) {
     await copyToClipboard(shuffledResult);
   } else {
     alert("No hay contenido para copiar al portapapeles!");
