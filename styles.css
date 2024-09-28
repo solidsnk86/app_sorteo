@@ -156,6 +156,8 @@ button:active {
   }
 
   .copied {
+    display: flex;
+    justify-content: center;
     display: none;
   }
 }
