@@ -13,9 +13,8 @@ const isDesktop = navigator.userAgent.includes("Windows NT 10.0");
 const copyBtn = document.querySelector(".copy-btn");
 const copiedBtn = document.querySelector(".copied");
 
-// Función para formatear la fecha y la hora
 /**
- *
+ * Función para formatear la fecha y la hora
  * @param { Date | number | string } d
  * @returns
  */
@@ -44,9 +43,8 @@ resetBtn.setAttribute("title", "Resetear");
 shareBtn.setAttribute("title", "Compartir");
 copyBtn.setAttribute("title", "Copiar");
 
-// Función para guardar en el localstorage
 /**
- *
+ * Función para guardar en el localstorage
  * @param { string } key
  * @param { Array<[]> | string } value
  */
@@ -81,9 +79,8 @@ formTasks.addEventListener("submit", (event) => {
   formTasks.reset();
 });
 
-// Función reutilizable para actualizar la lista de ambos ítems
 /**
- *
+ * Función reutilizable para actualizar la lista de ambos ítems
  * @param { Array<[]> } listElement
  * @param { Array<[]> } array
  */
