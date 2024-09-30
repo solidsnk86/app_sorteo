@@ -157,7 +157,7 @@ shareBtn.onclick = async () => {
       text:
         shuffledResult === `Sorteo del día ${formatedDateString}\n`
           ? "Puedes usar ésta aplicación para realizar sorteos entre integrantes de equipo o grupo."
-          : shuffledResult,
+          : shuffledResult.trim(),
       url: window.location.href,
     });
   }
