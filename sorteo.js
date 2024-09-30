@@ -155,7 +155,7 @@ shareBtn.onclick = async () => {
     await navigator.share({
       title: document.title,
       text:
-        shuffledResult === ""
+        shuffledResult === `Sorteo del día ${formatedDateString}\n`
           ? "Puedes usar ésta aplicación para realizar sorteos entre integrantes de equipo o grupo."
           : shuffledResult,
       url: window.location.href,
