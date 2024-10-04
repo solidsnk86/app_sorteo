@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Effect</title>
+  </head>
+  <body>
+    <style>
+      body {
+        max-width: 800px;
+        margin: 0 auto;
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+        background-color: #d2d2d2;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 4px;
+      }
+      .item {
+        view-transition-class: item;
+      }
+      ::view-transition-group(*.item) {
+        animation-duration: 420ms;
+        animation-timing-function: cubic-bezier(1, -0.62, 0.61, 1.37);
+      }
+      button {
+        border: none;
+        padding: 12px 18px;
+        border-radius: 6px;
+        background-color: #121212;
+        color: aliceblue;
+        margin: 10px auto;
+        cursor: pointer;
+      }
+    </style>
+    <div style="display: flex; gap: 10px">
+      <button><a href="/" style="text-decoration: none">Volver</a></button>
+      <button class="randomize">Mezclar</button>
+    </div>
+    <div class="grid">
+      <div class="item item1" data-item="1" style="view-transition-name: item1">
+        <img
+          src="/public/Screenshot_20240720-223312.png"
+          width="100%"
+          height="auto"
+          alt="An image"
+        />
+      </div>
+      <div class="item item2" data-item="2" style="view-transition-name: item2">
+        <img
+          src="/public/Screenshot_20240720-223312.png"
+          width="100%"
+          height="auto"
+          alt="An image"
+        />
+      </div>
+      <div class="item item3" data-item="3" style="view-transition-name: item3">
+        <img
+          src="/public/Screenshot_20240720-223312.png"
+          width="100%"
+          height="auto"
+          alt="An image"
+        />
+      </div>
+      <div class="item item4" data-item="4" style="view-transition-name: item4">
+        <img
+          src="/public/Screenshot_20240720-223312.png"
+          width="100%"
+          height="auto"
+          alt="An image"
+        />
+      </div>
+      <div class="item item5" data-item="5" style="view-transition-name: item5">
+        <img
+          src="/public/Screenshot_20240720-223312.png"
+          width="100%"
+          height="auto"
+          alt="An image"
+        />
+      </div>
+      <div class="item item6" data-item="6" style="view-transition-name: item6">
+        <img
+          src="/public/Screenshot_20240720-223312.png"
+          width="100%"
+          height="auto"
+          alt="An image"
+        />
+      </div>
+      <div class="item item7" data-item="7" style="view-transition-name: item7">
+        <img
+          src="/public/Screenshot_20240720-223312.png"
+          width="100%"
+          height="auto"
+          alt="An image"
+        />
+      </div>
+      <div class="item item8" data-item="8" style="view-transition-name: item8">
+        <img
+          src="/public/Screenshot_20240720-223312.png"
+          width="100%"
+          height="auto"
+          alt="An image"
+        />
+      </div>
+      <div class="item item9" data-item="9" style="view-transition-name: item9">
+        <img
+          src="/public/Screenshot_20240720-223312.png"
+          width="100%"
+          height="auto"
+          alt="An image"
+        />
+      </div>
+      <div
+        class="item item10"
+        data-item="10"
+        style="view-transition-name: item10"
+      >
+        <img
+          src="/public/Screenshot_20240720-223312.png"
+          width="100%"
+          height="auto"
+          alt="An image"
+        />
+      </div>
+      <div
+        class="item item11"
+        data-item="11"
+        style="view-transition-name: item11"
+      >
+        <img
+          src="/public/Screenshot_20240720-223312.png"
+          width="100%"
+          height="auto"
+          alt="An image"
+        />
+      </div>
+      <div
+        class="item item12"
+        data-item="12"
+        style="view-transition-name: item12"
+      >
+        <img
+          src="/public/Screenshot_20240720-223312.png"
+          width="100%"
+          height="auto"
+          alt="An image"
+        />
+      </div>
+    </div>
+
+    <script>
+      const grid = document.querySelector(".grid");
+
+      document.querySelector(".randomize").addEventListener("click", () => {
+        const shuffledItems = shuffleItems(grid.children);
+        if (document.startViewTransition) {
+          document.startViewTransition(() => {
+            grid.replaceChildren(...shuffledItems);
+          });
+        } else {
+          grid.replaceChildren(...shuffledItems);
+        }
+      });
+
+      function shuffleItems(items) {
+        return Array.from(items)
+          .map((value) => ({ value, sort: Math.random() }))
+          .sort((a, b) => a.sort - b.sort)
+          .map(({ value }) => value);
+      }
+    </script>
+  </body>
+</html>
