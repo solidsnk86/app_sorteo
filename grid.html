@@ -157,19 +157,19 @@
     <script>
       const grid = document.querySelector(".grid");
 
-      document.querySelector(".randomize").addEventListener("click", () => {
-        const shuffledItems = shuffleItems(grid.children);
-        document.startViewTransition(() => {
-          grid.replaceChildren(...shuffledItems);
-        });
-      });
-
       function shuffleItems(items) {
         return Array.from(items)
           .map((value) => ({ value, sort: Math.random() }))
           .sort((a, b) => a.sort - b.sort)
           .map(({ value }) => value);
       }
+
+      document.querySelector(".randomize").addEventListener("click", () => {
+        const shuffledItems = shuffleItems(grid.children);
+        document.startViewTransition(() => {
+          grid.replaceChildren(...shuffledItems);
+        });
+      });
     </script>
   </body>
 </html>
