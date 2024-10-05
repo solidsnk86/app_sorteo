@@ -24,7 +24,7 @@
         view-transition-class: item; /* Pueden ver la compatibilidad en Can I Use: https://caniuse.com/?search=view-transition-class */
       }
       ::view-transition-group(*.item) {
-        animation-duration: 420ms;
+        animation-duration: 800ms;
         animation-timing-function: cubic-bezier(1, -0.62, 0.61, 1.37);
       }
       button {
@@ -159,13 +159,9 @@
 
       document.querySelector(".randomize").addEventListener("click", () => {
         const shuffledItems = shuffleItems(grid.children);
-        if (document.startViewTransition) {
-          document.startViewTransition(() => {
-            grid.replaceChildren(...shuffledItems);
-          });
-        } else {
+        document.startViewTransition(() => {
           grid.replaceChildren(...shuffledItems);
-        }
+        });
       });
 
       function shuffleItems(items) {
