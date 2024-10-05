@@ -179,6 +179,7 @@ const copyToClipboard = async (content) => {
 
       return () => clearInterval(setButton);
     }, 2300);
+    navigator.vibrate();
   } catch (e) {
     alert("Error al copiar en el portapapeles.");
   }
