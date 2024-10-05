@@ -179,7 +179,6 @@ const copyToClipboard = async (content) => {
 
       return () => clearInterval(setButton);
     }, 2300);
-    navigator.vibrate();
   } catch (e) {
     alert("Error al copiar en el portapapeles.");
   }
@@ -188,6 +187,7 @@ const copyToClipboard = async (content) => {
 copyBtn.onclick = async () => {
   if (shuffledResult !== `Sorteo del día ${formatedDateString}\n`) {
     await copyToClipboard(shuffledResult);
+    await navigator.vibrate();
   } else {
     alert("No hay contenido para copiar al portapapeles!");
   }
