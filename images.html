@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      section {
+        display: flex;
+        width: 600px;
+        height: 430px;
+      }
+      section img {
+        width: 0px;
+        flex-grow: 1;
+        object-fit: cover;
+        opacity: 0.8;
+        transition: 0.5s ease;
+      }
+
+      section img:hover {
+        cursor: crosshair;
+        width: 300px;
+        opacity: 1;
+        filter: contrast(120%);
+      }
+    </style>
+    <script type="module">
+      const apiImg = {
+        url: "https://picsum.photos/v2/list",
+      };
+
+      const getPics = async () => {
+        const res = await fetch(apiImg.url);
+        const data = await res.json();
+        return data;
+      };
+
+      const createIMG = (url, alt) => `
+      <img src="${url}"" alt="Foto de ${alt}" />
+      `;
+
+      const images = await getPics();
+      const section = document.getElementById("section");
+
+      for (let i = 0; i < 5; i++) {
+        const urlImg = images[i].download_url;
+        section.innerHTML += createIMG(urlImg, images[i].author);
+      }
+    </script>
+  </head>
+  <body>
+    <section id="section"></section>
+  </body>
+</html>

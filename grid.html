@@ -44,119 +44,35 @@
       </button>
       <button class="randomize">Mezclar</button>
     </div>
-    <div class="grid">
-      <div class="item item1" data-item="1" style="view-transition-name: item1">
-        <img
-          src="public/Screenshot_20240720-223312.png"
-          width="100%"
-          height="auto"
-          alt="An image"
-        />
-      </div>
-      <div class="item item2" data-item="2" style="view-transition-name: item2">
-        <img
-          src="public/Screenshot_20240720-223312.png"
-          width="100%"
-          height="auto"
-          alt="An image"
-        />
-      </div>
-      <div class="item item3" data-item="3" style="view-transition-name: item3">
-        <img
-          src="public/Screenshot_20240720-223312.png"
-          width="100%"
-          height="auto"
-          alt="An image"
-        />
-      </div>
-      <div class="item item4" data-item="4" style="view-transition-name: item4">
-        <img
-          src="public/Screenshot_20240720-223312.png"
-          width="100%"
-          height="auto"
-          alt="An image"
-        />
-      </div>
-      <div class="item item5" data-item="5" style="view-transition-name: item5">
-        <img
-          src="public/Screenshot_20240720-223312.png"
-          width="100%"
-          height="auto"
-          alt="An image"
-        />
-      </div>
-      <div class="item item6" data-item="6" style="view-transition-name: item6">
-        <img
-          src="public/Screenshot_20240720-223312.png"
-          width="100%"
-          height="auto"
-          alt="An image"
-        />
-      </div>
-      <div class="item item7" data-item="7" style="view-transition-name: item7">
-        <img
-          src="public/Screenshot_20240720-223312.png"
-          width="100%"
-          height="auto"
-          alt="An image"
-        />
-      </div>
-      <div class="item item8" data-item="8" style="view-transition-name: item8">
-        <img
-          src="public/Screenshot_20240720-223312.png"
-          width="100%"
-          height="auto"
-          alt="An image"
-        />
-      </div>
-      <div class="item item9" data-item="9" style="view-transition-name: item9">
-        <img
-          src="public/Screenshot_20240720-223312.png"
-          width="100%"
-          height="auto"
-          alt="An image"
-        />
-      </div>
-      <div
-        class="item item10"
-        data-item="10"
-        style="view-transition-name: item10"
-      >
-        <img
-          src="public/Screenshot_20240720-223312.png"
-          width="100%"
-          height="auto"
-          alt="An image"
-        />
-      </div>
-      <div
-        class="item item11"
-        data-item="11"
-        style="view-transition-name: item11"
-      >
-        <img
-          src="public/Screenshot_20240720-223312.png"
-          width="100%"
-          height="auto"
-          alt="An image"
-        />
-      </div>
-      <div
-        class="item item12"
-        data-item="12"
-        style="view-transition-name: item12"
-      >
-        <img
-          src="public/Screenshot_20240720-223312.png"
-          width="100%"
-          height="auto"
-          alt="An image"
-        />
-      </div>
-    </div>
+    <div class="grid"></div>
 
-    <script>
+    <script type="module">
       const grid = document.querySelector(".grid");
+
+      const getPics = async () => {
+        const res = await fetch("https://picsum.photos/v2/list");
+        const data = await res.json();
+        return data;
+      };
+
+      const createDivsIMG = (i, url, author) => `
+        <div class="item item${i}" data-item="${i}" style="view-transition-name: item${i}">
+        <img
+          src="${url}"
+          width="100%"
+          height="auto"
+          alt="An image from ${author}"
+        />
+      </div>
+      `;
+
+      const images = await getPics();
+
+      for (let i = 0; i < 20; i++) {
+        const urlImg = images[i].download_url;
+        const alt = images[i].author;
+        grid.innerHTML += createDivsIMG(i, urlImg, alt);
+      }
 
       function shuffleItems(items) {
         return Array.from(items)
