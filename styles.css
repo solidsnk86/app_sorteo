@@ -100,6 +100,15 @@ input[type="text"]:focus {
   border-color: #546feb;
 }
 
+.list {
+  display: flex;
+  justify-content: space-between;
+}
+
+#delete {
+  cursor: pointer;
+}
+
 button {
   padding: 8px 6px;
   border: none;

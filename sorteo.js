@@ -12,6 +12,7 @@ const addButton = document.querySelector("#submit-member, #submit-task");
 const isDesktop = navigator.userAgent.includes("Windows NT 10.0");
 const copyBtn = document.querySelector(".copy-btn");
 const copiedBtn = document.querySelector(".copied");
+const deleteBtn = document.querySelectorAll("#delete");
 
 /**
  * Función para formatear la fecha y la hora
@@ -88,8 +89,16 @@ function updateList(listElement, array) {
   listElement.innerHTML = "";
   array.forEach((item, index) => {
     const p = document.createElement("p");
-    p.textContent = `${index + 1}. ${item}`;
+    p.classList.add("list");
+    p.innerHTML = `${
+      index + 1
+    }. ${item} <span id="delete" title="Eliminar: ${item}">❌</span>`;
     listElement.appendChild(p);
+
+    p.onclick = () => {
+      p.remove();
+      localStorage.clear();
+    };
   });
 }
 
@@ -115,7 +124,8 @@ const shuffle = (members, tasks) => {
   const shuffledTasks = [...tasks].sort(() => Math.random() - 0.5);
 
   // Devuelve el miembro y la tarea mapeando cada uno de ellos con un índice
-  // que se divide el índice de la tarea por la longitud de las tares mezcladas
+  // en dónde se divide el índice de la tarea por la longitud de las tares mezcladas
+
   /**
    * El operador % (módulo) asegura que el índice de la tarea vuelva al
    * principio del arreglo shuffledTasks cuando
@@ -180,7 +190,7 @@ const copyToClipboard = async (content) => {
       return () => clearInterval(setButton);
     }, 2300);
   } catch (e) {
-    alert("Error al copiar en el portapapeles.");
+    alert(`Error al copiar en el portapapeles ${e}`);
   }
 };
 
