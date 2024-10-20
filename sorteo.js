@@ -97,8 +97,12 @@ function updateList(listElement, array) {
 
     p.onclick = () => {
       p.remove();
-      members.splice(index, 1);
-      tasks.splice(index, 1);
+      if (members.length > 0) {
+        members.splice(index, 1);
+      }
+      if (tasks.length > 0) {
+        tasks.splice(index, 1);
+      }
       localStorage.clear();
     };
   });
