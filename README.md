@@ -1,7 +1,7 @@
 # App para sorteos
 
 <div align="center">
-    <img src="public/favicon.png" width="180" height="200" alt="Logo" />
+    <img src="https://raw.githubusercontent.com/solidsnk86/app_sorteo/refs/heads/master/public/favicon.png" width="180" height="200" alt="Logo" />
 </div>
 
 - Esta es una pequeña aplicación que diseñe para hacer sorteos, en mi caso la he creado para poder sortear trabajos prácticos en la universidad en nuestro grupo de la facultad para repartirnos la tarea en secciones y quién es responsable de cada sección.
